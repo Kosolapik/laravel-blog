@@ -7,12 +7,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавление категории</h1>
+                        <h1 class="m-0">Редактирование тэга "{{ $tag->title }}"</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Главная</a></li>
-                            <li class="breadcrumb-item active">Добавление категорию</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.tag.index') }}">Тэги</a></li>
+                            <li class="breadcrumb-item active">Редактирование тэга</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -25,21 +26,21 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-6">
-                        <form action="{{ route('admin.category.store') }}" method="POST">
+                        <form action="{{ route('admin.tag.update', $tag->id) }}" method="POST">
                             @csrf
+                            @method('patch')
                             <div class="form-group">
-                                <label>Название категории</label>
+                                <label>Новое название категории</label>
                                 <input class="form-control" type="text" name="title"
-                                    placeholder="Введите название новой категории ..." {{ old('title') }}>
+                                    placeholder="Введите новое название категории ..." value="{{ $tag->title }}">
                                 @error('title')
                                     <div class="text-danger">
                                         Поле "Название категории" обязательно для заполнения
-                                        {{-- {{ $message }} --}}
                                     </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-primary float-right" value="Добавить">
+                                <input type="submit" class="btn btn-block btn-primary float-right" value="Изменить">
                             </div>
                         </form>
                     </div>

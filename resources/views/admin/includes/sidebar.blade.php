@@ -47,13 +47,13 @@
                 </a>
                 <ul class="nav nav-treeview" style="display: none;">
                     <li class="nav-item">
-                        <a href="pages/mailbox/mailbox.html" class="nav-link">
+                        <a href="{{ route('admin.tag.index') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Все тэги</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/mailbox/compose.html" class="nav-link">
+                        <a href="{{ route('admin.tag.create') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Добавить тэг</p>
                         </a>
