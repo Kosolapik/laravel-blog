@@ -71,13 +71,13 @@
                 </a>
                 <ul class="nav nav-treeview" style="display: none;">
                     <li class="nav-item">
-                        <a href="pages/mailbox/mailbox.html" class="nav-link">
+                        <a href="{{ route('admin.post.index') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Все посты</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/mailbox/compose.html" class="nav-link">
+                        <a href="{{ route('admin.post.create') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Добавить пост</p>
                         </a>
