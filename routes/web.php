@@ -6,7 +6,8 @@ use App\Http\Controllers\Front\Post\PostController as FrontPostController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Category\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\Tag\TagController as AdminTagController;
-use App\Http\Controllers\Admin\Post\PostController as AdmiPostController;
+use App\Http\Controllers\Admin\Post\PostController as AdminPostController;
+use App\Http\Controllers\Admin\User\UserController as AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,8 @@ Route::name('front.')->group(function () {
 });
 Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
-    Route::resource('post', AdmiPostController::class);
+    Route::resource('post', AdminPostController::class);
     Route::resource('category', AdminCategoryController::class);
     Route::resource('tag', AdminTagController::class);
+    Route::resource('user', AdminUserController::class);
 });

@@ -71,15 +71,39 @@
                 </a>
                 <ul class="nav nav-treeview" style="display: none;">
                     <li class="nav-item">
-                        <a href="{{ route('admin.post.index') }}" class="nav-link">
+                        <a href="{{ route('admin.user.index') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Все посты</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.post.create') }}" class="nav-link">
+                        <a href="{{ route('admin.user.create') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Добавить пост</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-users"></i>
+                    <p>
+                        Пользователи
+                        <i class="fas fa-angle-left right"></i>
+                        <span class="badge badge-info right">2</span>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.user.index') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Все пользователи</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.user.create') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Добавить пользователя</p>
                         </a>
                     </li>
                 </ul>
