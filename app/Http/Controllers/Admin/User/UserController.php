@@ -19,7 +19,8 @@ class UserController extends BaseController
 
     public function create()
     {
-        return view('admin.user.create');
+        $roles = User::getRoles();
+        return view('admin.user.create', compact('roles'));
     }
 
     public function store(StoreRequest $request)
@@ -32,12 +33,14 @@ class UserController extends BaseController
 
     public function show(User $user)
     {
-        return view('admin.user.show', compact('user'));
+        $roles = User::getRoles();
+        return view('admin.user.show', compact('user', 'roles'));
     }
 
     public function edit(User $user)
     {
-        return view('admin.user.edit', compact('user'));
+        $roles = User::getRoles();
+        return view('admin.user.edit', compact('user', 'roles'));
     }
 
     public function update(UpdateRequest $request, User $user)
@@ -45,7 +48,7 @@ class UserController extends BaseController
         $data = $request->validated();
         $data['password'] = Hash::make($data['password']);
         $user->update($data);
-        return redirect()->route('admin.user.show');
+        return redirect()->route('admin.user.show', $user->id);
     }
 
     public function destroy(User $user)

@@ -23,8 +23,10 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'required | string',
-            'email' => 'required | string | email | unique:users',
+            'email' => 'required | string | email | unique:users,email,' . $this->user_id,
+            'user_id' => 'required | integer | exists:users,id',
             'password' => 'required | string',
+            'role' => 'required | numeric',
         ];
     }
 
@@ -39,6 +41,8 @@ class UpdateRequest extends FormRequest
             'email.unique' => 'Пользователь с таким e-mail уже существует',
             'password.required' => 'Поле "Пароль пользователя" обязательно для заполнения',
             'password.string' => 'Поле "Пароль пользователя" должно соответствовать строчному типу',
+            'role.required' => 'Поле "Роль пользователя" обязательно для заполнения',
+            'role.numeric' => 'Выберите роль пользователя',
         ];
     }
 }

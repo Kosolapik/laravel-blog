@@ -25,6 +25,7 @@ class StoreRequest extends FormRequest
             'name' => 'required | string',
             'email' => 'required | string | email | unique:users',
             'password' => 'required | string',
+            'role' => 'required | numeric',
         ];
     }
 
@@ -39,6 +40,8 @@ class StoreRequest extends FormRequest
             'email.unique' => 'Пользователь с таким e-mail уже существует',
             'password.required' => 'Поле "Пароль пользователя" обязательно для заполнения',
             'password.string' => 'Поле "Пароль пользователя" должно соответствовать строчному типу',
+            'role.required' => 'Поле "Роль пользователя" обязательно для заполнения',
+            'role.numeric' => 'Выберите роль пользователя',
         ];
     }
 }

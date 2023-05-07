@@ -31,7 +31,7 @@ Auth::routes();
 Route::name('front.')->group(function () {
     Route::resource('post', FrontPostController::class);
 });
-Route::name('admin.')->prefix('admin')->group(function () {
+Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::resource('post', AdminPostController::class);
     Route::resource('category', AdminCategoryController::class);

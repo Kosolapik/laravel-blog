@@ -46,6 +46,14 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item d-flex align-items-center">
+                    <form class="" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="btn btn-block btn-outline-danger" type="submit">
+                            {{ Auth::user()->name }} <i class="fa-solid fa-arrow-right-from-bracket ml-2"></i>
+                        </button>
+                    </form>
+                </li>
                 <!-- Navbar Search -->
                 <li class="nav-item">
                     <a class="nav-link" data-widget="navbar-search" href="#" role="button">
@@ -68,7 +76,6 @@
                         </form>
                     </div>
                 </li>
-
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">

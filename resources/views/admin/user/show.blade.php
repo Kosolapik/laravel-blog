@@ -59,6 +59,12 @@
                                         <td>E-mail</td>
                                         <td>{{ $user->email }}</td>
                                     <tr>
+                                    <tr>
+                                        <td>Роль</td>
+                                        <td>
+                                            {{ $roles[$user->role] }}
+                                        </td>
+                                    <tr>
                                         <td>Дата создания</td>
                                         <td>{{ \Carbon\Carbon::parse($user->create_at)->format('d/m/Y') }}</td>
                                     </tr>
