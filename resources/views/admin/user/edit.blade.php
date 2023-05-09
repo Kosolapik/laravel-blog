@@ -49,7 +49,7 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label>Пароль пользователя</label>
                                 <input class="form-control" type="text" name="password"
                                     placeholder="Введите новый пароль пользователя ..." {{ $user->password }}>
@@ -58,7 +58,7 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label>Роль пользователя</label>
                                 @error('role')

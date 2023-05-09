@@ -7,6 +7,10 @@ use App\Http\Requests\Admin\User\StoreRequest;
 use App\Http\Requests\Admin\User\UpdateRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\User\PasswordMail;
+use Illuminate\Auth\Events\Registered;
+use App\Jobs\StoreUserJob;
 
 class UserController extends BaseController
 {
@@ -26,8 +30,12 @@ class UserController extends BaseController
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
-        $data['password'] = Hash::make($data['password']);
-        User::firstOrCreate(['email' => $data['email']], $data);
+        $password = str()->random(10);
+        $data['password'] = Hash::make($password);
+        $user = User::firstOrCreate(['email' => $data['email']], $data);
+        Mail::to( $data['email'])->send(new PasswordMail($password));
+        event(new Registered($user));
+        // StoreUserJob::dispatch($data);
         return redirect()->route('admin.user.index');
     }
 
