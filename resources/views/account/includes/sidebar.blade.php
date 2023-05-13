@@ -86,24 +86,36 @@
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">
-                    <i class="fa-solid fa-users mr-1"></i>
+                    <i class="fa-regular fa-thumbs-up mr-1"></i>
                     <p>
-                        Пользователи
+                        Лайки
                         <i class="fas fa-angle-left right"></i>
                         <span class="badge badge-info right">2</span>
                     </p>
                 </a>
                 <ul class="nav nav-treeview" style="display: none;">
                     <li class="nav-item">
-                        <a href="{{ route('admin.user.index') }}" class="nav-link">
+                        <a href="{{ route('account.liked.index') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Все пользователи</p>
+                            <p>Все лайки</p>
                         </a>
                     </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fa-regular fa-comments mr-1"></i>
+                    <p>
+                        Коментарии
+                        <i class="fas fa-angle-left right"></i>
+                        <span class="badge badge-info right">2</span>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview" style="display: none;">
                     <li class="nav-item">
-                        <a href="{{ route('admin.user.create') }}" class="nav-link">
+                        <a href="{{ route('account.comment.index') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Добавить пользователя</p>
+                            <p>Все коментарии</p>
                         </a>
                     </li>
                 </ul>

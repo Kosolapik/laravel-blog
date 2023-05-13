@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use App\Models\Tag;
 use App\Models\Post;
 use App\Models\User;
 
-class AdminController extends Controller
+class AccountController extends Controller
 {
     public function dashboard()
     {
@@ -18,6 +18,6 @@ class AdminController extends Controller
         $data['tag_count'] = Tag::all()->count();
         $data['post_count'] = Post::all()->count();
         $data['user_count'] = User::all()->count();
-        return view('admin.dashboard', compact ('data'));
+        return view('account.dashboard', compact ('data'));
     }
 }
