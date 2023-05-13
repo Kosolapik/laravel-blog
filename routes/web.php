@@ -46,5 +46,7 @@ Route::name('account.')->prefix('account')->middleware(['auth', 'verified'])->gr
     Route::get('/', [AccountController::class, 'dashboard'])->name('dashboard');
     Route::resource('liked', AccountLikedController::class);
     Route::resource('comment', AccountCommentController::class);
-    // Route::resource('tag', AccountTagController::class);
+    Route::resource('post', AccountPostController::class);
+    Route::resource('category', AccountCategoryController::class);
+    Route::resource('tag', AccountTagController::class);
 });

@@ -38,14 +38,6 @@
                                     aria-label="Введите название новой категории" aria-describedby="button-addon2">
                                 <input class="btn btn-primary" type="submit" value="Добавить">
                             </div>
-
-
-
-                            {{-- <label class="col-2">Название категории</label>
-                            <input class="form-control col-4" type="text" name="title"
-                                placeholder="Введите название новой категории ...">
-
-                            <input type="submit" class="btn btn-block btn-primary float-right col-3" value="Добавить"> --}}
                         </form>
                     </div>
                 </div>
