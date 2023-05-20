@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Post;
 use App\Models\Comment;
 use App\Http\Requests\Account\Comment\UpdateRequest;
+use Carbon\Carbon;
 
 class CommentController extends Controller
 {
@@ -18,7 +19,8 @@ class CommentController extends Controller
         foreach ($comments as $comment) {
             $posts[$comment->id] = $comment->post;
         }
-        return view('account.comment.index', compact('comments', 'posts'));
+        $carbon = Carbon::class;
+        return view('account.comment.index', compact('comments', 'posts', 'carbon'));
     }
 
     public function edit(Comment $comment)

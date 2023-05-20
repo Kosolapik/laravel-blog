@@ -60,6 +60,7 @@
                                             <th>Категория</th>
                                             <th>Тэги</th>
                                             <th>Дата создания</th>
+                                            <th>Дата обновления</th>
                                             <th colspan="3"></th>
                                         </tr>
                                     </thead>
@@ -80,7 +81,8 @@
                                                             class="badge badge-success m-1">{{ '#' . $tag->title }}</span><br>
                                                     @endforeach
                                                 </td>
-                                                <td>{{ \Carbon\Carbon::parse($post->create_at)->format('d/m/Y') }}</td>
+                                                <td>{{ $carbon::parse($post->created_at)->format('d.m.Y') }}</td>
+                                                <td>{{ $carbon::parse($post->updated_at)->format('d.m.Y') }}</td>
                                                 <td>
                                                     <a class="btn btn-outline-info"
                                                         href="{{ route('admin.post.show', $post->id) }}">

@@ -11,8 +11,8 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.category.index') }}">Комментарии</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('account.dashboard') }}">Главная</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('account.comment.index') }}">Комментарии</a></li>
                             <li class="breadcrumb-item active">Редактирование комментария</li>
                         </ol>
                     </div><!-- /.col -->

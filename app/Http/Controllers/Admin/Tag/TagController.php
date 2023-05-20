@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Admin\Tag\StoreRequest;
 use App\Http\Requests\Admin\Tag\UpdateRequest;
 use App\Models\Tag;
+use Carbon\Carbon;
 
 class TagController extends Controller
 {
@@ -14,7 +15,8 @@ class TagController extends Controller
     public function index()
     {
         $tags = Tag::orderBy('id', 'desc')->get();
-        return view('admin.tag.index', compact('tags'));
+        $carbon = Carbon::class;
+        return view('admin.tag.index', compact('tags', 'carbon'));
     }
 
     public function create()
@@ -31,7 +33,8 @@ class TagController extends Controller
 
     public function show(Tag $tag)
     {
-        return view('admin.tag.show', compact('tag'));
+        $carbon = Carbon::class;
+        return view('admin.tag.show', compact('tag', 'carbon'));
     }
 
     public function edit(tag $tag)

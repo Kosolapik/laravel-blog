@@ -6,11 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Admin\User\StoreRequest;
 use App\Http\Requests\Admin\User\UpdateRequest;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\User\PasswordMail;
-use Illuminate\Auth\Events\Registered;
-use App\Jobs\StoreUserJob;
+use Carbon\Carbon;
 
 class UserController extends BaseController
 {
@@ -18,7 +14,8 @@ class UserController extends BaseController
     public function index()
     {
         $users = User::orderBy('id', 'desc')->get();
-        return view('admin.user.index', compact('users'));
+        $carbon = Carbon::class;
+        return view('admin.user.index', compact('users', 'carbon'));
     }
 
     public function create()
@@ -30,19 +27,15 @@ class UserController extends BaseController
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
-        $password = str()->random(10);
-        $data['password'] = Hash::make($password);
-        $user = User::firstOrCreate(['email' => $data['email']], $data);
-        Mail::to( $data['email'])->send(new PasswordMail($password));
-        event(new Registered($user));
-        // StoreUserJob::dispatch($data);
+        $this->service->store($data);
         return redirect()->route('admin.user.index');
     }
 
     public function show(User $user)
     {
         $roles = User::getRoles();
-        return view('admin.user.show', compact('user', 'roles'));
+        $carbon = Carbon::class;
+        return view('admin.user.show', compact('user', 'roles', 'carbon'));
     }
 
     public function edit(User $user)
@@ -54,7 +47,6 @@ class UserController extends BaseController
     public function update(UpdateRequest $request, User $user)
     {
         $data = $request->validated();
-        $data['password'] = Hash::make($data['password']);
         $user->update($data);
         return redirect()->route('admin.user.show', $user->id);
     }

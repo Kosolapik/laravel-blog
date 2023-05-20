@@ -14,83 +14,11 @@
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">
-                    <i class="fa-solid fa-list mr-1"></i>
-                    <p>
-                        Категории
-                        <i class="fas fa-angle-left right"></i>
-                        <span class="badge badge-info right">2</span>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview" style="display: none;">
-                    <li class="nav-item">
-                        <a href="{{ route('account.category.index') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Все категории</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('account.category.create') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Добавить категорию</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fa-solid fa-tags mr-1"></i>
-                    <p>
-                        Тэги
-                        <i class="fas fa-angle-left right"></i>
-                        <span class="badge badge-info right">2</span>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview" style="display: none;">
-                    <li class="nav-item">
-                        <a href="{{ route('account.tag.index') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Все тэги</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('account.tag.create') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Добавить тэг</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fa-regular fa-paste mr-1"></i>
-                    <p>
-                        Посты
-                        <i class="fas fa-angle-left right"></i>
-                        <span class="badge badge-info right">2</span>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview" style="display: none;">
-                    <li class="nav-item">
-                        <a href="{{ route('account.post.index') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Все посты</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('account.post.create') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Добавить пост</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
                     <i class="fa-regular fa-thumbs-up mr-1"></i>
                     <p>
                         Лайки
                         <i class="fas fa-angle-left right"></i>
-                        <span class="badge badge-info right">2</span>
+                        <span class="badge badge-info right"></span>
                     </p>
                 </a>
                 <ul class="nav nav-treeview" style="display: none;">
@@ -108,7 +36,7 @@
                     <p>
                         Коментарии
                         <i class="fas fa-angle-left right"></i>
-                        <span class="badge badge-info right">2</span>
+                        <span class="badge badge-info right"></span>
                     </p>
                 </a>
                 <ul class="nav nav-treeview" style="display: none;">

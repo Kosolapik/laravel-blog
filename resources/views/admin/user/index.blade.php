@@ -62,7 +62,6 @@
                                             <th>Почта</th>
                                             <th>Дата создания</th>
                                             <th>Дата оновления</th>
-                                            <th>Дата удаления</th>
                                             <th colspan="3"></th>
                                         </tr>
                                     </thead>
@@ -72,9 +71,8 @@
                                                 <td>{{ $user->id }}</td>
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->email }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($user->create_at)->format('d/m/Y') }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($user->update_up)->format('d/m/Y') }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($user->delete_at)->format('d/m/Y') }}</td>
+                                                <td>{{ $carbon::parse($user->created_at)->format('d.m.Y') }}</td>
+                                                <td>{{ $carbon::parse($user->updated_at)->format('d.m.Y') }}</td>
                                                 <td>
                                                     <a class="btn btn-outline-info"
                                                         href="{{ route('admin.user.show', $user->id) }}">

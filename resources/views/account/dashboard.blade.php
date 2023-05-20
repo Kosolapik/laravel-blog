@@ -28,14 +28,14 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>{{ $data['category_count'] }}</h3>
+                                <h3>{{ $data['liked_count'] }}</h3>
 
-                                <p>Категории</p>
+                                <p>Лайки</p>
                             </div>
                             <div class="icon">
                                 <i class="fa-solid fa-list"></i>
                             </div>
-                            <a href="{{ route('admin.category.index') }}" class="small-box-footer">Все категории <i
+                            <a href="{{ route('account.liked.index') }}" class="small-box-footer">Все лайки <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -44,46 +44,14 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>{{ $data['tag_count'] }}</sup></h3>
+                                <h3>{{ $data['comment_count'] }}</sup></h3>
 
-                                <p>Тэги</p>
+                                <p>Коментарии</p>
                             </div>
                             <div class="icon">
                                 <i class="fa-solid fa-tags mr-1"></i>
                             </div>
-                            <a href="{{ route('admin.tag.index') }}" class="small-box-footer">Все тэги <i
-                                    class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-warning">
-                            <div class="inner">
-                                <h3>{{ $data['post_count'] }}</h3>
-
-                                <p>Посты</p>
-                            </div>
-                            <div class="icon">
-                                <i class="fa-regular fa-paste mr-1"></i>
-                            </div>
-                            <a href="{{ route('admin.post.index') }}" class="small-box-footer">Все посты <i
-                                    class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-danger">
-                            <div class="inner">
-                                <h3>{{ $data['user_count'] }}</h3>
-
-                                <p>Пользователи</p>
-                            </div>
-                            <div class="icon">
-                                <i class="fa-solid fa-users mr-1"></i>
-                            </div>
-                            <a href="{{ route('admin.user.index') }}" class="small-box-footer">Все пользователи <i
+                            <a href="{{ route('account.comment.index') }}" class="small-box-footer">Все коментарии <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>

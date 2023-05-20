@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
+use Carbon\Carbon;
 
 class PostController extends BaseController
 {
@@ -16,7 +17,8 @@ class PostController extends BaseController
     public function index()
     {
         $posts = Post::orderBy('id', 'desc')->get();
-        return view('admin.post.index', compact('posts'));
+        $carbon = Carbon::class;
+        return view('admin.post.index', compact('posts', 'carbon'));
     }
 
     public function create()

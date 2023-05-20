@@ -52,8 +52,8 @@
                                             <th>Содержание</th>
                                             <th>Категория</th>
                                             <th>Тэги</th>
-                                            <th>Дата создания</th>
-                                            <th colspan="2"></th>
+                                            <th>Дата лайка</th>
+                                            <th colspan="1"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -73,12 +73,7 @@
                                                             class="badge badge-success m-1">{{ '#' . $tag->title }}</span><br>
                                                     @endforeach
                                                 </td>
-                                                <td>{{ \Carbon\Carbon::parse($post->create_at)->format('d/m/Y') }}</td>
-                                                <td>
-                                                    <a class="btn btn-outline-info" href="#">
-                                                        <i class="fa-regular fa-eye"></i>
-                                                    </a>
-                                                </td>
+                                                <td>{{ $carbon::parse($post->created_at)->format('d.m.Y') }}</td>
                                                 <td>
                                                     <form action="{{ route('account.liked.destroy', $post->id) }}"
                                                         method="POST">

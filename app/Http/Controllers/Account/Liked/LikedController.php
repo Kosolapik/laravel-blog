@@ -6,13 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Post;
+use Carbon\Carbon;
 
 class LikedController extends Controller
 {
     public function index()
     {
         $posts = auth()->user()->likedPosts;
-        return view('account.liked.index', compact('posts'));
+        $carbon = Carbon::class;
+        return view('account.liked.index', compact('posts', 'carbon'));
     }
 
     public function destroy(Post $post)

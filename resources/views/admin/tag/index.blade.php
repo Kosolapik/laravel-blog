@@ -76,7 +76,6 @@
                                             <th>Название</th>
                                             <th>Дата создания</th>
                                             <th>Дата оновления</th>
-                                            <th>Дата удаления</th>
                                             <th colspan="3"></th>
                                         </tr>
                                     </thead>
@@ -85,9 +84,8 @@
                                             <tr>
                                                 <td>{{ $tag->id }}</td>
                                                 <td>{{ $tag->title }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($tag->create_at)->format('d/m/Y') }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($tag->update_up)->format('d/m/Y') }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($tag->delete_at)->format('d/m/Y') }}</td>
+                                                <td>{{ $carbon::parse($tag->created_at)->format('d.m.Y') }}</td>
+                                                <td>{{ $carbon::parse($tag->updated_at)->format('d.m.Y') }}</td>
                                                 <td>
                                                     <a class="btn btn-outline-info"
                                                         href="{{ route('admin.tag.show', $tag->id) }}">

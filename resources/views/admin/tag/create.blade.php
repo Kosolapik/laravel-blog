@@ -34,7 +34,6 @@
                                 @error('title')
                                     <div class="text-danger">
                                         Поле "Название тэга" обязательно для заполнения
-                                        {{-- {{ $message }} --}}
                                     </div>
                                 @enderror
                             </div>

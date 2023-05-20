@@ -38,14 +38,6 @@
                                     aria-label="Введите название новой категории" aria-describedby="button-addon2">
                                 <input class="btn btn-primary" type="submit" value="Добавить">
                             </div>
-
-
-
-                            {{-- <label class="col-2">Название категории</label>
-                            <input class="form-control col-4" type="text" name="title"
-                                placeholder="Введите название новой категории ...">
-
-                            <input type="submit" class="btn btn-block btn-primary float-right col-3" value="Добавить"> --}}
                         </form>
                     </div>
                 </div>
@@ -76,7 +68,6 @@
                                             <th>Название</th>
                                             <th>Дата создания</th>
                                             <th>Дата оновления</th>
-                                            <th>Дата удаления</th>
                                             <th colspan="3"></th>
                                         </tr>
                                     </thead>
@@ -85,9 +76,8 @@
                                             <tr>
                                                 <td>{{ $category->id }}</td>
                                                 <td>{{ $category->title }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($category->create_at)->format('d/m/Y') }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($category->update_up)->format('d/m/Y') }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($category->delete_at)->format('d/m/Y') }}</td>
+                                                <td>{{ $carbon::parse($category->created_at)->format('d.m.Y') }}</td>
+                                                <td>{{ $carbon::parse($category->updated_at)->format('d.m.Y') }}</td>
                                                 <td>
                                                     <a class="btn btn-outline-info"
                                                         href="{{ route('admin.category.show', $category->id) }}">

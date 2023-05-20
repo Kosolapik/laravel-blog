@@ -57,15 +57,11 @@
                                         <td>{{ $category->title }}</td>
                                     <tr>
                                         <td>Дата создания</td>
-                                        <td>{{ \Carbon\Carbon::parse($category->create_at)->format('d/m/Y') }}</td>
+                                        <td>{{ $carbon::parse($category->created_at)->format('d.m.Y') }}</td>
                                     </tr>
                                     <tr>
                                         <td>Дата обновления</td>
-                                        <td>{{ \Carbon\Carbon::parse($category->update_up)->format('d/m/Y') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Дата удаления</td>
-                                        <td>{{ \Carbon\Carbon::parse($category->delete_at)->format('d/m/Y') }}</td>
+                                        <td>{{ $carbon::parse($category->updated_at)->format('d.m.Y') }}</td>
                                     </tr>
                                 </tbody>
                             </table>

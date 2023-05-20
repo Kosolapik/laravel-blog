@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\Post\PostController as FrontPostController;
+use App\Http\Controllers\Front\Post\Comment\CommentController as PostCommentController;
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Category\CategoryController as AdminCategoryController;
@@ -12,6 +13,9 @@ use App\Http\Controllers\Admin\User\UserController as AdminUserController;
 use App\Http\Controllers\Account\AccountController;
 use App\Http\Controllers\Account\Liked\LikedController as AccountLikedController;
 use App\Http\Controllers\Account\Comment\CommentController as AccountCommentController;
+use App\Http\Controllers\Account\Post\PostController as AccountPostController;
+use App\Http\Controllers\Account\Category\CategoryController as AccountCategoryController;
+use App\Http\Controllers\Account\Tag\TagController as AccountTagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +35,10 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::name('front.')->group(function () {
-    Route::resource('post', FrontPostController::class);
+    Route::resource('post', FrontPostController::class)->only(['index', 'show']);
+    Route::name('post.')->prefix('post/{post}/')->group(function () {
+        Route::resource('comment', PostCommentController::class)->only(['store']);
+    });
 });
 
 Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'verified'])->group(function () {
@@ -46,7 +53,4 @@ Route::name('account.')->prefix('account')->middleware(['auth', 'verified'])->gr
     Route::get('/', [AccountController::class, 'dashboard'])->name('dashboard');
     Route::resource('liked', AccountLikedController::class);
     Route::resource('comment', AccountCommentController::class);
-    Route::resource('post', AccountPostController::class);
-    Route::resource('category', AccountCategoryController::class);
-    Route::resource('tag', AccountTagController::class);
 });

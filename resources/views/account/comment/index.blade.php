@@ -49,7 +49,8 @@
                                             <th>ID</th>
                                             <th>Комментарий</th>
                                             <th>Пост</th>
-                                            <th>Дата создания</th>
+                                            <th>Дата коментария</th>
+                                            <th>Дата обновления</th>
                                             <th colspan="2"></th>
                                         </tr>
                                     </thead>
@@ -59,7 +60,8 @@
                                                 <td>{{ $comment->id }}</td>
                                                 <td>{{ $comment->message }}</td>
                                                 <td>{{ $posts[$comment->id]['title'] }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($comment->create_at)->format('d/m/Y') }}</td>
+                                                <td>{{ $carbon::parse($comment->created_at)->format('d.m.Y') }}</td>
+                                                <td>{{ $carbon::parse($comment->updated_at)->format('d.m.Y') }}</td>
                                                 <td>
                                                     <a class="btn btn-outline-info"
                                                         href="{{ route('account.comment.edit', $comment->id) }}">
