@@ -25,6 +25,29 @@
                     </div>
                 </div>
             </section>
+            <section class="row mb-3 ml-2">
+                <div class="">
+                    @auth
+                        <form action="{{ route('front.post.likes.store', $post->id) }}" method="POST">
+                            @csrf
+                            <span>{{ $post->liked_users_count }}</span>
+                            <button class="border-0 bg-transparent" type="submit">
+                                @if (auth()->user()->likedPosts->contains($post->id))
+                                    <i class="fa-solid fa-heart"></i>
+                                @else
+                                    <i class="fa-regular fa-heart"></i>
+                                @endif
+                            </button>
+                        </form>
+                    @endauth
+                    @guest
+                        <div>
+                            <span>{{ $post->liked_users_count }}</span>
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                    @endguest
+                </div>
+            </section>
             <div class="row">
                 <div class="col-lg-9 mx-auto">
                     <section class="comment-list">
@@ -59,22 +82,26 @@
                             </form>
                         </section>
                     @endauth
-                    <section class="related-posts">
-                        <h2 class="section-title mb-4 aos-init aos-animate" data-aos="fade-up">Вам может понравиться</h2>
-                        <div class="row">
-                            @foreach ($relatedPosts as $relatedPost)
-                                <div class="col-md-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100"
-                                    style="height: 200px">
-                                    <img src="{{ asset('storage/' . $relatedPost->preview) }}" alt="related post"
-                                        class="post-thumbnail" style="object-fit:contain; height: 100%">
-                                    <p class="post-category">{{ $relatedPost->category->title }}</p>
-                                    <a href="{{ route('front.post.show', $relatedPost->id) }}" class="blog-post-permalink">
-                                        <h5 class="post-title">{!! $relatedPost->title !!}</h5>
-                                    </a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </section>
+                    @if ($relatedPosts->count() > 0)
+                        <section class="related-posts">
+                            <h2 class="section-title mb-4 aos-init aos-animate" data-aos="fade-up">Вам может понравиться
+                            </h2>
+                            <div class="row">
+                                @foreach ($relatedPosts as $relatedPost)
+                                    <div class="col-md-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100"
+                                        style="height: 200px">
+                                        <img src="{{ asset('storage/' . $relatedPost->preview) }}" alt="related post"
+                                            class="post-thumbnail" style="object-fit:contain; height: 100%">
+                                        <p class="post-category">{{ $relatedPost->category->title }}</p>
+                                        <a href="{{ route('front.post.show', $relatedPost->id) }}"
+                                            class="blog-post-permalink">
+                                            <h5 class="post-title">{!! $relatedPost->title !!}</h5>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </section>
+                    @endif
                 </div>
             </div>
         </div>

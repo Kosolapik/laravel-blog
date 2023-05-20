@@ -15,6 +15,7 @@ class Post extends Model
 
     protected $table = 'posts';
     protected $guarded = [];
+    protected $withCount = ['likedUsers'];
 
     public function tags(): BelongsToMany
     {

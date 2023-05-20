@@ -11,6 +11,14 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="{{ route('front.post.index') }}">Блог</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Категории</a>
+                        <div class="dropdown-menu" aria-labelledby="blogDropdown" style="display: none;">
+                            <a class="dropdown-item" href="{{ route('front.category.index') }}">Все категории</a>
+                            {{-- <a class="dropdown-item" href="blog-single.html">Blog Post</a> --}}
+                        </div>
+                    </li>
                 </ul>
                 <ul class="navbar-nav mt-2 mt-lg-0">
                     @guest('web')

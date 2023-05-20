@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\Post\PostController as FrontPostController;
 use App\Http\Controllers\Front\Post\Comment\CommentController as PostCommentController;
+use App\Http\Controllers\Front\Post\Like\LikeController as PostLikeController;
+use App\Http\Controllers\Front\Category\CategoryController as FrontCategoryController;
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Category\CategoryController as AdminCategoryController;
@@ -39,6 +41,11 @@ Route::name('front.')->group(function () {
     Route::name('post.')->prefix('post/{post}/')->group(function () {
         Route::resource('comment', PostCommentController::class)->only(['store']);
     });
+    Route::name('post.')->prefix('post/{post}/')->group(function () {
+        Route::resource('likes', PostLikeController::class)->only(['store']);
+    });
+
+    Route::resource('category', FrontCategoryController::class)->only(['index', 'show']);
 });
 
 Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'verified'])->group(function () {
